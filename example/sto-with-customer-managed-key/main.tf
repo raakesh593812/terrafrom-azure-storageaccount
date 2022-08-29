@@ -1,6 +1,12 @@
 # Azure Provider configuration
 provider "azurerm" {
-  features {}
+  features {
+    key_vault {
+      purge_soft_delete_on_destroy    = false
+      recover_soft_deleted_key_vaults = false
+      purge_soft_deleted_keys_on_destroy = false
+    }
+  }
 }
 
 
@@ -17,7 +23,7 @@ module "storage" {
 
   resource_group_name   = "terr-import-rg"
   location              = "eastus"
-  storage_account_name  = "zmystoragew1x"
+  storage_account_name  = "zmystoragewzx"
   enable_advanced_threat_protection = true
 
   # Container lists 
@@ -64,9 +70,9 @@ module "cus-managed-kv" {
     module.storage
   ]
   source  = "../../modules/cus-managed-key" 
-  key_vault_name = "tfe-tex"
+  key_vault_name = "tfe-tex1"
   key_vault_RG   = "myResourceGroup"
-  sto-key-name = "${module.storage.storage_account_name}-cus-key"
+  sto-key-name = "${module.storage.storage_account_name}-cus-key1"
   tenant_id    =   module.storage.tenant_id
   object_id    =   module.storage.managedidentity
   storage_account_id = module.storage.storage_account_id

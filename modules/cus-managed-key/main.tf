@@ -18,7 +18,7 @@ resource "azurerm_key_vault_access_policy" "storage" {
   tenant_id    =   var.tenant_id
   object_id    =   var.object_id 
 
-  key_permissions    = ["Get", "Create", "List", "Restore", "Recover", "UnwrapKey", "WrapKey", "Purge", "Encrypt", "Decrypt", "Sign", "Verify"]
+  key_permissions    = ["Get", "Create", "List", "Restore", "Recover", "UnwrapKey", "WrapKey", "Purge", "Encrypt", "Decrypt", "Sign", "Verify","Delete"]
   secret_permissions = ["Get"]
 }
 
